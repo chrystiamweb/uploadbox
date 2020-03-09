@@ -6,9 +6,24 @@ class DropBoxController {
         this.snackModalEl = document.querySelector('#react-snackbar-root');        
         this.progressBarEl = this.snackModalEl.querySelector('.mc-progress-bar-fg');
         this.nameFileEl = this.snackModalEl.querySelector('.filename');
-        this.timeLeftEl = this.snackModalEl.querySelector('.timeleft');
+				this.timeLeftEl = this.snackModalEl.querySelector('.timeleft');
+				this.connectFirebase();
         this.initEvents();
-    }
+		}
+		
+		connectFirebase(){
+			var firebaseConfig = {
+				apiKey: "AIzaSyCyzN7ZcxUwW111i59iNhkhBSzq6hC5yLU",
+				authDomain: "uploadbox-3ec90.firebaseapp.com",
+				databaseURL: "https://uploadbox-3ec90.firebaseio.com",
+				projectId: "uploadbox-3ec90",
+				storageBucket: "uploadbox-3ec90.appspot.com",
+				messagingSenderId: "1000309238215",
+				appId: "1:1000309238215:web:1b1e0d42ff5e2f0dfb11e2"
+			};
+			// Initialize Firebase
+			firebase.initializeApp(firebaseConfig);
+		}
 
     initEvents(){
         this.btnSendFileEl.addEventListener('click', event =>{
